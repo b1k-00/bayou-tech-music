@@ -3,7 +3,7 @@
 
 ## What is this?
 
-This is a msotly empty solution setup to act as a base for the .Net team in the JA program.
+This is a mostly empty solution setup to act as a base for the .Net team in the JA program.
 
 Some things to note:
  - This project is designed with [Clean Architecture](https://www.c-sharpcorner.com/article/clean-architecture-with-net-62/).

@@ -2,5 +2,51 @@ default:
   tags:
     - docker
 
-include:
-  - template: AWS/Deploy-ECS.gitlab-ci.yml
+stages:
+  - test
+  - build
+  - deploy
+
+variables:
+  # Use TLS https://docs.gitlab.com/ee/ci/docker/using_docker_build.html#tls-enabled
+  DOCKER_HOST: tcp://docker:2376
+  DOCKER_TLS_CERTDIR: "/certs"
+  CONTAINER_BUILD_IMAGE: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
+  CONTAINER_RELEASE_IMAGE: $CI_REGISTRY_IMAGE:latest
+
+jobs:
+  test:
+    image: docker:20.10.16
+    stage: test
+    services:
+    - docker:20.10.16-dind
+    script:
+    - docker build --target test -t dadjokestest .
+
+  build:
+    image: docker:20.10.16
+    stage: build
+    services:
+    - docker:20.10.16-dind
+    script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker build --target deploy -t $CONTAINER_BUILD_IMAGE .
+    - docker push $CONTAINER_BUILD_IMAGE
+
+  release:
+    stage: deploy
+    image: docker:20.10.16
+    services:
+    - docker:20.10.16-dind
+    script:
+    - docker pull $CONTAINER_BUILD_IMAGE
+    - docker tag $CONTAINER_BUILD_IMAGE $CONTAINER_RELEASE_IMAGE
+    - docker push $CONTAINER_RELEASE_IMAGE
+    only:
+    - main
+
+  deploy:
+    stage: deploy
+    image: registry.gitlab.com/gitlab-org/cloud-deploy/aws-ecs:latest
+    script:
+    - ecs update-task-definition

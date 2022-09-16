@@ -11,11 +11,11 @@ variables:
   CONTAINER_BUILD_IMAGE: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
   CONTAINER_RELEASE_IMAGE: $CI_REGISTRY_IMAGE:latest
 
-# test:
-#   image: docker:20.10.16
-#   stage: test
-#   script:
-#   - docker build --target test -t dadjokestest .
+test:
+  image: docker:20.10.16
+  stage: test
+  script:
+  - docker build --target test -t dadjokestest .
 
 build:
   image: docker:20.10.16

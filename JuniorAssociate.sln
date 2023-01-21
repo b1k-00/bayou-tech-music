@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApiUnitTests", "tests\ApiUnitTests\ApiUnitTests.csproj", "{6FDCB3D9-F73D-468D-BA17-64E059C0A90F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{5CFA1438-CB45-4A4A-8D3F-567355D97A9A}"
+	ProjectSection(SolutionItems) = preProject
+		tests\sth.txt = tests\sth.txt
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{CDA93F5E-D25B-437E-9636-7C16AE65AF29}"
 EndProject

@@ -10,7 +10,7 @@ using Persistence;
 
 namespace Persistence.Migrations
 {
-    [DbContext(typeof(JuniorAssociateDbContext))]
+    [DbContext(typeof(BayouTechDbContext))]
     partial class JuniorAssociateDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

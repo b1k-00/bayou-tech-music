@@ -3,10 +3,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Persistence;
 
-public class JuniorAssociateDbContext : DbContext
+public class BayouTechDbContext : DbContext
 {
 
-    public JuniorAssociateDbContext(DbContextOptions<JuniorAssociateDbContext> options) : base(options)
+    public BayouTechDbContext(DbContextOptions<BayouTechDbContext> options) : base(options)
     {
     }
 
@@ -17,7 +17,7 @@ public class JuniorAssociateDbContext : DbContext
     /// <param name="modelBuilder"></param>
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.ApplyConfigurationsFromAssembly(typeof(JuniorAssociateDbContext).Assembly);
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(BayouTechDbContext).Assembly);
     }
 
     #region DbSets

@@ -12,7 +12,7 @@ public class BayouTechDesignTimeFactory : IDesignTimeDbContextFactory<BayouTechD
             .AddJsonFile(Directory.GetCurrentDirectory() + "/dbsettings.json")
             .Build();
 
-        var connectionString = configuration.GetConnectionString("JuniorAssociateDb");
+        var connectionString = configuration.GetConnectionString("BayouTechMusicDb");
 
         var builder = new DbContextOptionsBuilder<BayouTechDbContext>();
         builder.UseSqlServer(connectionString);

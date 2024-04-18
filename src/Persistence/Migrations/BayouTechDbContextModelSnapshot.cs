@@ -11,7 +11,7 @@ using Persistence;
 namespace Persistence.Migrations
 {
     [DbContext(typeof(BayouTechDbContext))]
-    partial class JuniorAssociateDbContextModelSnapshot : ModelSnapshot
+    partial class BayouTechDbContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
         {

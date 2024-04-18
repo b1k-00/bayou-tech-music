@@ -1,4 +1,5 @@
-﻿using Application.Persistence;
+﻿using Application.Interfaces;
+using Application.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,7 +19,7 @@ public static class PersistenceServicesRegistration
     {
         //Registers the DbContext with our DI container
         services.AddDbContext<BayouTechDbContext>(
-            options => options.UseSqlServer(configuration.GetConnectionString("JuniorAssociateDb"))
+            options => options.UseSqlServer(configuration.GetConnectionString("BayouTechMusicDb"))
         );
 
         //Registers the Generic Repository. Registering this way allows us to use the GenericRepository
@@ -26,7 +27,10 @@ public static class PersistenceServicesRegistration
         services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
         //Register all of the other repositories here
-        services.AddScoped<IDadJokeRepository, DadJokeRepository>();
+        //services.AddScoped<IDadJokeRepository, DadJokeRepository>();
+
+
+
 
         return services;
     }

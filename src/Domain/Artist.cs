@@ -11,8 +11,6 @@ public class Artist : BaseEntity
     public DateOnly BirthDate { get; set; }
 
     public string Origin { get; set; }
-    public string Features { get; set; }
 
-    public List<Song> Songs { get; set; }
 
 }

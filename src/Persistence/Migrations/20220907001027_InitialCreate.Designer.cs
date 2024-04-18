@@ -11,7 +11,7 @@ using Persistence;
 
 namespace Persistence.Migrations
 {
-    [DbContext(typeof(JuniorAssociateDbContext))]
+    [DbContext(typeof(BayouTechDbContext))]
     [Migration("20220907001027_InitialCreate")]
     partial class InitialCreate
     {

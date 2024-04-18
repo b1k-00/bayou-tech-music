@@ -17,7 +17,7 @@ public static class PersistenceServicesRegistration
     public static IServiceCollection ConfigurePersistenceServices(this IServiceCollection services, IConfiguration configuration)
     {
         //Registers the DbContext with our DI container
-        services.AddDbContext<JuniorAssociateDbContext>(
+        services.AddDbContext<BayouTechDbContext>(
             options => options.UseSqlServer(configuration.GetConnectionString("JuniorAssociateDb"))
         );
 

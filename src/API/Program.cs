@@ -55,7 +55,7 @@ builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddSwaggerGen(options =>
 {
-    options.SwaggerDoc("v1", new OpenApiInfo { Title = "Junior Associate .Net API V1", Version = "v1" });
+    options.SwaggerDoc("v1", new OpenApiInfo { Title = "Bayou Tech Music .Net API V1", Version = "v1" });
     options.EnableAnnotations();
     options.SchemaFilter<CleanUpDtoSchemaFilter>();
     options.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
@@ -94,7 +94,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger(new SwaggerOptions());
     app.UseSwaggerUI(options =>
     {
-        options.SwaggerEndpoint("/swagger/v1/swagger.json", "Junior Associate .Net API V1");
+        options.SwaggerEndpoint("/swagger/v1/swagger.json", "Bayou Tech Music .Net API V1");
         options.OAuthClientId(builder.Configuration["AWS:UserPoolClientId"]);
         options.OAuthUseBasicAuthenticationWithAccessCodeGrant();
         options.OAuthAppName("Swagger UI");

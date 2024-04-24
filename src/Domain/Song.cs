@@ -8,7 +8,7 @@ public class Song : BaseEntity
 
     public int ArtistId { get; set; }
 
-    public DateOnly ReleaseDate { get; set; }
+    public DateTime ReleaseDate { get; set; }
 
     //I want this to have the option to be null
     public string? Features { get; set; } 

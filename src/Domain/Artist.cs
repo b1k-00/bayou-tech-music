@@ -8,7 +8,7 @@ public class Artist : BaseEntity
 
     public string Genre { get; set; }
 
-    public DateOnly BirthDate { get; set; }
+    public DateTime BirthDate { get; set; }
 
     public string Origin { get; set; }
 

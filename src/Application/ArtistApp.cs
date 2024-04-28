@@ -33,4 +33,12 @@ public class ArtistApp : IArtistApp
 
         return result;
     }
+
+    public async Task<List<Artist>> AllArtist()
+    {
+            return (await _artistRepo.GetAllAsync()).ToList();
+    }
+
+
+
 }

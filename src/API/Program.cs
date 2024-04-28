@@ -42,8 +42,13 @@ builder.Services.AddHttpContextAccessor();
 //This adds Amazon Cognito as the Identity Provider
 //builder.Services.AddCognitoIdentity();
 
+//builder.Services.AddDbContext<BayouTechDbContext>(options => 
+//options.UseSqlServer(builder.Configuration.GetConnectionString("BayouTechDb")), ServiceLifetime.Scoped);
+
 builder.Services.AddDbContext<BayouTechDbContext>(options =>
-options.UseSqlServer(builder.Configuration.GetConnectionString("BayouTechDb")), ServiceLifetime.Scoped);
+                options.UseSqlServer(builder
+                .Configuration
+                .GetConnectionString("BayouTechMusicDb")), ServiceLifetime.Scoped);
 
 builder.Services.AddScoped<ISongApp, SongApp>();
 builder.Services.AddScoped<IGenericRepository<Song>, SongRepository>();

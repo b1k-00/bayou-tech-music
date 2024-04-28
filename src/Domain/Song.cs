@@ -10,6 +10,8 @@ public class Song : BaseEntity
 
     public DateTime ReleaseDate { get; set; }
 
+    public int AlbumId { get; set; }
+
     //I want this to have the option to be null
     public string? Features { get; set; } 
 

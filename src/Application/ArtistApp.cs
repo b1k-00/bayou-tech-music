@@ -24,7 +24,7 @@ public class ArtistApp : IArtistApp
         var result = "Unable to add!";
 
 
-        if (!artists.Select(x => x.Name).Contains(artist.Name))
+        if (!artists.Select(x => x.ArtistName).Contains(artist.ArtistName))
         {
             await _artistRepo.AddAsync(artist);
 

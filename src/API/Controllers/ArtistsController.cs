@@ -20,4 +20,13 @@ public class ArtistsController : BaseApiController
 
         return await _artistApp.CreateArtist(artist);
     }
+
+    [HttpGet("AllArtists")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<Artist>))]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<List<Artist>> AllArtist()
+    {
+
+        return await _artistApp.AllArtist();
+    }
 }

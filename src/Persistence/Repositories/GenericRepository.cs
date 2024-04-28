@@ -1,4 +1,5 @@
 ﻿using Application.Persistence;
+using Domain;
 using Microsoft.EntityFrameworkCore;
 
 namespace Persistence.Repositories;
@@ -29,7 +30,7 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
         }
     }
 
-    public async Task<IReadOnlyCollection<T>> GetAllAsync()
+    public async Task<List<T>> GetAllAsync()
     {
         return await _dbContext.Set<T>().ToListAsync();
     }

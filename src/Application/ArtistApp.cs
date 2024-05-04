@@ -39,6 +39,43 @@ public class ArtistApp : IArtistApp
             return (await _artistRepo.GetAllAsync()).ToList();
     }
 
+    public async Task<string> DeleteArtist(int artistId)
+    {
+        var artists = await _artistRepo.GetAllAsync();
+
+        var result = "Unable to delete!";
+
+        foreach (var artist in artists)
+        {
+            if (artist.Id == artistId)
+            {
+                await _artistRepo.DeleteAsync(artistId);
+
+                result = "Artist Deleted!";
 
 
+            }
+
+        }
+
+        return result;
+    }
+
+    public async Task<string> UpdateArtist(Artist artist)
+    {
+        var results = "update";
+
+        try
+        {
+            await _artistRepo.UpdateAsync(artist);
+
+        }
+        catch (Exception ex)
+        {
+
+            results = "update failure"; ;
+        }
+
+        return results;
+    }
 }

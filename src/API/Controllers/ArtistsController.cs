@@ -29,4 +29,22 @@ public class ArtistsController : BaseApiController
 
         return await _artistApp.AllArtist();
     }
+
+    [HttpPost("DeleteArtist")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(string))]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<string> DeleteArtist(int  artistId) 
+    {
+
+        return await _artistApp.DeleteArtist(artistId);
+    }
+
+    [HttpPost("UpdateArtist")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(string))]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<string> UpdateArtist(Artist artist)
+    {
+
+        return await _artistApp.UpdateArtist(artist);
+    }
 }

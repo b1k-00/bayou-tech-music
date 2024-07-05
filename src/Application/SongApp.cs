@@ -34,9 +34,23 @@ public class SongApp : ISongApp
         return result;
     }
 
-    public Task<Song> UpdateSong(Song song)
+    public async Task<string> UpdateSong(Song song)
     {
-        throw new NotImplementedException();
+        var result = "Updated Song";
+
+        try
+        {
+            await _songRepo.UpdateAsync(song);
+
+        }
+        catch (Exception ex)
+        {
+
+            result = "Failed to Update";
+        }
+
+        return result;
+
     }
 
     public Task<bool> DeleteSong(int id)

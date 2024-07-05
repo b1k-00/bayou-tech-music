@@ -10,7 +10,7 @@ public interface ISongApp
 {
     Task<string> CreateSong(Song song);
 
-    Task<Song> UpdateSong(Song song);
+    Task<string> UpdateSong(Song song);
 
     Task<bool> DeleteSong(int id);
 

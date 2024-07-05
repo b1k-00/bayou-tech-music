@@ -7,7 +7,7 @@ public class SongsController : BaseApiController
 {
     ISongApp _songApp = null;
 
-    public SongsController (ISongApp songApp)
+    public SongsController(ISongApp songApp)
     {
         _songApp = songApp;
     }
@@ -19,5 +19,14 @@ public class SongsController : BaseApiController
     {
 
         return await _songApp.CreateSong(song);
+    }
+
+    [HttpPost("UpdateSong")]
+    [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(string))]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<string> UpdateSong (Song song)
+    {
+
+        return await _songApp.UpdateSong(song);
     }
 }

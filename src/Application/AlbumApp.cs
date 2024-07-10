@@ -36,4 +36,9 @@ public class AlbumApp : IAlbumApp
     {
         throw new NotImplementedException();
     }
+
+    public Task<string> DeleteAlbum(int albumId)
+    {
+        throw new NotImplementedException();
+    }
 }

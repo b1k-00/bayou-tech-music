@@ -13,7 +13,7 @@ public interface IAlbumApp
     Task<string> UpdateAlbum(Album album);
 
 
-    Task<string> DeleteAlbum(string albumId);
+    Task<string> DeleteAlbum(int albumId);
 
     Task<List<Album>> GetAllAlbums();
 
